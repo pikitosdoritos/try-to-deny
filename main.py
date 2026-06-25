@@ -15,7 +15,7 @@ screen.fill((255, 255, 255))
 
 def render_form():
     font = pygame.font.Font(None, 30)
-    surface = pygame.Surface((600, 400), pygame.SRCALPHA)
+    surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
 
     form_text = font.render("Do you want to close this window?", True, (0, 0, 0))
     reopen_button_text = font.render("YES", True, (255, 255, 255))
@@ -58,7 +58,7 @@ def render_form():
 
 def render_asking_block():
     font = pygame.font.Font(None, 30)
-    surface = pygame.Surface((600, 400))
+    surface = pygame.Surface((WIDTH, HEIGHT))
 
     surface.fill((255, 255, 255))
 
@@ -91,11 +91,11 @@ def render_asking_block():
 
 def render_thx_message():
     font = pygame.font.Font(None, 30)
-    surface = pygame.Surface((600, 400))
+    surface = pygame.Surface((WIDTH, HEIGHT))
 
     surface.fill((255, 255, 255))
 
-    form_text = font.render("You`re right! I`m proud of your intelligencer", True, (0, 0, 0))
+    form_text = font.render("You`re right! I`m proud of your intelligence", True, (0, 0, 0))
 
     rect_form_text = form_text.get_rect(center=surface.get_rect().center)
     surface.blit(form_text, rect_form_text)
