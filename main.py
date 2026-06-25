@@ -41,8 +41,7 @@ def render_form():
     close_button_text_rect = close_button_text.get_rect(center=close_button_rect.center)
     surface.blit(close_button_text, close_button_text_rect)
 
-    surface_rect = surface.get_rect(center=surface.get_rect().center)
-    screen.blit(surface, surface_rect)
+    screen.blit(surface, (0, 0))
 
     reopen_coords = reopen_button_rect.move(
         surface.get_rect().x,
@@ -86,8 +85,7 @@ def render_asking_block():
     close_button_text_rect = close_button_text.get_rect(center=close_button_rect.center)
     surface.blit(close_button_text, close_button_text_rect)
 
-    surface_rect = surface.get_rect(center=surface.get_rect().center)
-    screen.blit(surface, surface_rect)
+    screen.blit(surface, (0, 0))
 
 def render_thx_message():
     font = pygame.font.Font(None, 30)
@@ -100,8 +98,7 @@ def render_thx_message():
     rect_form_text = form_text.get_rect(center=surface.get_rect().center)
     surface.blit(form_text, rect_form_text)
 
-    surface_rect = surface.get_rect(center=surface.get_rect().center)
-    screen.blit(surface, surface_rect)
+    screen.blit(surface, (0, 0))
 
 needs_redraw_form = True
 needs_redraw_reopen = False
