@@ -103,9 +103,11 @@ def render_thx_message():
     surface_rect = surface.get_rect(center=surface.get_rect().center)
     screen.blit(surface, surface_rect)
 
-while True:
-    clock.tick(60)
+needs_redraw_form = True
+needs_redraw_reopen = False
+needs_redraw_close = False
 
+while True:
     reopen, close = render_form()
 
     for event in pygame.event.get():
@@ -115,13 +117,24 @@ while True:
 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if reopen.collidepoint(event.pos):
-                render_asking_block()
-            elif close.collidepoint(event.pos):
-                render_thx_message()
+                needs_redraw_reopen = True,
+                needs_redraw_form = False
 
-                time.sleep(10)
+            if close.collidepoint(event.pos):
+                needs_redraw_close = True
+                needs_redraw_form = False
 
-                pygame.quit()
-                sys.exit()
+    if needs_redraw_form: render_form()
+    if needs_redraw_reopen: render_asking_block()
+
+    if needs_redraw_close: 
+        render_thx_message() 
+        
+        time.sleep(10)
+
+        pygame.quit()
+        sys.exit()
+
+    clock.tick(60)
 
     pygame.display.update()
